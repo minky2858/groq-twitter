@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+    dawn1:
+        image: ghcr.io/minky2858/groq-twitter:latest
+        container_name: groqtwitter
+        environment:
+            # optional:
+            # default to 0 'llama-3.1-8b-instant'
+            # list at: https://console.groq.com/docs/models
+            GROQ_MODEL: "llama-3.1-8b-instant"
+            GROQ_API_KEY: ""
+            TWITTER_API_KEY: ""
+            TWITTER_API_SECRET: ""
+            TWITTER_ACCESS_TOKEN: ""
+            TWITTER_ACCESS_TOKEN_SECRET: ""
+            SYSTEM_PROMPT: "Hello, im your virtual assistant here to help with any questions about our services. What would you like to know more about today?"
+            # optional:
+            # seperated by '|~|'
+            USER_PROMPT: "Can you explain how your pricing model works?|~|What are the working hours for customer support?"
+            INTERVAL: "30m"
+            # optional:
+            # default to 0
+            INTERVAL_VAR: "5m"
+        restart: always
